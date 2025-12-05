@@ -1,2 +1,7 @@
-*.exe
+.exe
+
 .vscode/
+
+build/
+
+l.c
