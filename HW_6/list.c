@@ -6,7 +6,7 @@
 // Создание новой пустой структуры списка
 list* new_list()
 {
-    list* new = (list*)malloc(sizeof(list));
+    list* new = malloc(sizeof(list));
     if (new != NULL) {
         new->head = NULL;    
         new->tail = NULL;    
@@ -19,7 +19,7 @@ list* new_list()
 void add(list *lis)
 {
     // Выделение памяти для нового абонента
-    abonent* new = (abonent*)malloc(sizeof(abonent));
+    abonent* new = malloc(sizeof(abonent));
     if (new == NULL) {
         printf("Ошибка выделения памяти!\n");
         return;
