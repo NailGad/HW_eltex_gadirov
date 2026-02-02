@@ -1,5 +1,12 @@
-.exe
-.o
-.vscode/
+*.exe
+*.out
+
+*.o
+*.obj
+
 build/
-l.c
+bin/
+dist/
+
+.vscode/
+.idea/
