@@ -1,7 +1,5 @@
 .exe
-
+.o
 .vscode/
-
 build/
-
 l.c
