@@ -4,15 +4,15 @@
 #include <unistd.h>
 
 int main() {
-    sigset_t mask;
+    sigset_t mask; // создаем маску сигналов
 
     printf("[БЛОКИРОВЩИК] Мой PID: %d\n", getpid());
     printf("[БЛОКИРОВЩИК] Блокирую SIGINT...\n");
 
-    sigemptyset(&mask);
-    sigaddset(&mask, SIGINT);
+    sigemptyset(&mask); // очищаем маску сигналов
+    sigaddset(&mask, SIGINT); // добавляем SIGINT в маску
 
-    if (sigprocmask(SIG_BLOCK, &mask, NULL) == -1) {
+    if (sigprocmask(SIG_BLOCK, &mask, NULL) == -1) { // блокируем сигнал SIGINT
         perror("sigprocmask");
         exit(EXIT_FAILURE);
     }

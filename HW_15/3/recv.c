@@ -16,11 +16,11 @@ int main() {
     }
 
     while (1) {
-    if(sigwait(&mask, &sig) == -1) {
+        if(sigwait(&mask, &sig) == -1) { // ожидаем сигнал SIGUSR1
             perror("sigwait");
             exit(EXIT_FAILURE);
         }
-        printf("[БЛОКИРОВЩИК] Получен сигнал %d\n", sig);
+        printf("[БЛОКИРОВЩИК] Получен сигнал %d\n", sig); // выводим полученный сигнал
     }
 
     return 0;

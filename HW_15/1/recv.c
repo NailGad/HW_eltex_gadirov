@@ -4,19 +4,19 @@
 #include <signal.h>
 #include <unistd.h>
 
-
+// Обработчик сигнала SIGUSR1
 void siguser1(int sig, siginfo_t *info, void* context)
 {
 	printf("\n я принял сигнал от %d \n",info->si_pid);
 }
 
 int main(int argc, char *argv[]) {
-	struct sigaction sa;
+	struct sigaction sa; //настраиваем обработчик сигнала
     sa.sa_sigaction = siguser1;
-    sa.sa_flags = SA_SIGINFO | SA_RESTART;
+    sa.sa_flags = SA_SIGINFO | SA_RESTART; //собираем всю информацию | перезапускаем обработчик
     sigemptyset(&sa.sa_mask);  
 
-    if(sigaction(SIGUSR1, &sa, NULL) == -1)
+    if(sigaction(SIGUSR1, &sa, NULL) == -1) // регистрируем обработчик сигнала SIGUSR1
     {
    		perror("registr signal");
     }
