@@ -3,7 +3,12 @@ CFLAGS = -Wall -pthread
 LIBS = -lrt -lncurses -pthread
 
 all: recv send
-	$(CC) $(CFLAGS) -o recv recv.c && $(CC) $(CFLAGS) -o send send.c
+
+recv: recv.c
+	$(CC) $(CFLAGS) -o recv recv.c $(LIBS)
+
+send: send.c
+	$(CC) $(CFLAGS) -o send send.c $(LIBS)
 
 clean:
 	rm -f recv send
